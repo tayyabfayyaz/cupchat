@@ -153,9 +153,8 @@ Thumbs.db
 *.jsonl
 *.parquet
 
-#folders
-backend/node_modules
-backend/dist
-frontend/node_modules
-frontend/dist
-packages/
+# Clerk authentication cache/config
+.clerk/
+
+# Custom AI setup (local model weights or configs)
+custom-llama-setup/

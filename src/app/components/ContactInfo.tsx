@@ -33,7 +33,7 @@ export default function ContactInfo() {
       <div>
         <h2 className="text-3xl font-bold text-foreground mb-4">Get in touch</h2>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          Ready to transform your onboarding process? We're here to help you create 
+          Ready to transform your onboarding process? We are here to help you create 
           exceptional user experiences that drive engagement and retention.
         </p>
       </div>

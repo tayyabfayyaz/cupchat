@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Code2, ShieldCheck, ServerCog, Copy, ExternalLink } from "lucide-react";
+import { Code2, ShieldCheck, ServerCog, Copy} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function IntegrationPage() {
@@ -102,7 +102,7 @@ Content-Type: application/json
           </div>
           <div className="flex gap-2 items-start">
             <ShieldCheck className="text-green-600 w-5 h-5 mt-1" />
-            <p><strong>JWT + Auth Middleware</strong> recommended if you're embedding this in a dashboard with user auth.</p>
+            <p><strong>JWT + Auth Middleware</strong> recommended if you are embedding this in a dashboard with user auth.</p>
           </div>
         </div>
       </section>

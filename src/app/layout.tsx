@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { ClerkProvider } from "@clerk/nextjs";
-import ChatbotToggleButton from "@/packages/chatbot-sdk/src/components/Chatbot";
+import ChatbotClient from "./components/chatbot";
 
 const geistSans = Inter({
   variable: "--font-geist-sans",
@@ -36,13 +36,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Header />
-          <ChatbotToggleButton 
-            apiUrl="http://localhost:8000/api/chat"
-            apiKey="sk_a9759e18f2de46e0929c3ea72f47cca3"
-            position="bottom-right"
-            theme="dark"
-            title="CupChat Assistant"
-          />
+          <ChatbotClient />
           {children}
           <Footer />
         </body>

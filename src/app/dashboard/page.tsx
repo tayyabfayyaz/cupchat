@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"; // utility for conditional classes
-import { Agent } from "http";
 import AgentForm from "@/app/components/AgentForm";
 
 const tabs = [

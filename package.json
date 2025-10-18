@@ -25,6 +25,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@supabase/supabase-js": "^2.57.4",
+    "@tayyabfayyaz931/cutbot-sdk": "^1.1.0",
     "@types/react-router-dom": "^5.3.3",
     "@your-username/chatbot-sdk": "file:src/packages/chatbot-sdk",
     "class-variance-authority": "^0.7.1",

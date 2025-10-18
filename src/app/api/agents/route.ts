@@ -34,10 +34,26 @@ export async function POST(request: NextRequest) {
       apiUrl: data.api_url
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error creating agent:', error);
+
+    let message = 'Failed to create agent';
+    if (error instanceof Error && error.message) {
+      message = error.message;
+    } else if (typeof error === 'string') {
+      message = error;
+    } else if (typeof error === 'number') {
+      message = String(error);
+    } else if (error && typeof error === 'object') {
+      try {
+        message = JSON.stringify(error);
+      } catch {
+        // keep default message
+      }
+    }
+
     return NextResponse.json(
-      { error: error.message || 'Failed to create agent' },
+      { error: message },
       { status: 500 }
     );
   }

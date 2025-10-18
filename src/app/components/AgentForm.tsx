@@ -39,9 +39,9 @@ export default function AgentForm() {
       console.log("🔄 Submitting form data:", formData);
 
       const res = await fetch("http://localhost:8000/api/agents", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
       });
 
       console.log("📨 Response status:", res.status);
@@ -50,39 +50,40 @@ export default function AgentForm() {
       console.log("✅ Full response data:", data);
 
       if (!res.ok) {
-        throw new Error(data.message || data.detail || "Server error");
+      throw new Error(data.message || data.detail || "Server error");
       }
 
       // ✅ Check for both apiKey and agentId (now directly in response)
       if (data.apiKey && data.agentId) {
-        // Store credentials for later use
-        sessionStorage.setItem("apiKey", data.apiKey);
-        sessionStorage.setItem("agentId", data.agentId);
-        sessionStorage.setItem("apiUrl", data.apiUrl);
+      // Store credentials for later use
+      sessionStorage.setItem("apiKey", data.apiKey);
+      sessionStorage.setItem("agentId", data.agentId);
+      sessionStorage.setItem("apiUrl", data.apiUrl);
 
-        localStorage.setItem("apiKey", data.apiKey);
-        localStorage.setItem("agentId", data.agentId);
-        localStorage.setItem("apiUrl", data.apiUrl);
+      localStorage.setItem("apiKey", data.apiKey);
+      localStorage.setItem("agentId", data.agentId);
+      localStorage.setItem("apiUrl", data.apiUrl);
 
-        setMessage("🎉 Agent created successfully!");
-        console.log("✅ Agent created successfully:", {
-          apiKey: data.apiKey,
-          agentId: data.agentId,
-          apiUrl: data.apiUrl
-        });
+      setMessage("🎉 Agent created successfully!");
+      console.log("✅ Agent created successfully:", {
+        apiKey: data.apiKey,
+        agentId: data.agentId,
+        apiUrl: data.apiUrl
+      });
 
-        // Redirect to API key page with parameters
-        setTimeout(() => {
-          window.location.href = `/api-key?apiKey=${encodeURIComponent(data.apiKey)}&agentId=${encodeURIComponent(data.agentId)}&apiUrl=${encodeURIComponent(data.apiUrl)}`;
-        }, 1000);
-        
+      // Redirect to API key page with parameters
+      setTimeout(() => {
+        window.location.href = `/api-key?apiKey=${encodeURIComponent(data.apiKey)}&agentId=${encodeURIComponent(data.agentId)}&apiUrl=${encodeURIComponent(data.apiUrl)}`;
+      }, 1000);
+      
       } else {
-        console.error("❌ Missing required fields in response:", data);
-        throw new Error("Invalid response from server: missing API key or agent ID");
+      console.error("❌ Missing required fields in response:", data);
+      throw new Error("Invalid response from server: missing API key or agent ID");
       }
-    } catch (err: any) {
+    } catch (err: Error | unknown) {
       console.error("❌ Submission error:", err);
-      setError(`Error: ${err.message}. Make sure FastAPI is running on port 8000.`);
+      const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+      setError(`Error: ${errorMessage}. Make sure FastAPI is running on port 8000.`);
     } finally {
       setLoading(false);
     }

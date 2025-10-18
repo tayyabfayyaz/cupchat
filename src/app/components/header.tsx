@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser, UserButton, SignUpButton } from "@clerk/nextjs";
-import { Github, Twitter, Linkedin, AlignLeft, Sparkles, Icon } from "lucide-react";
+import { Github, Twitter, Linkedin, AlignLeft, Sparkles } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -17,7 +17,7 @@ import { motion } from "framer-motion";
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
 
   return (
     <motion.header

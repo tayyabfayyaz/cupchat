@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   ShieldCheck,
   Globe,
@@ -20,6 +19,7 @@ import { motion } from "framer-motion";
 import { FeatureCard } from "@/app/components/FeatureCard";
 import { TestimonialCard } from "@/app/components/TestimonialCard";
 import { TeamMemberCard } from "@/app/components/TeamMemberCard";
+import Image from "next/image";
 // import heroImage from "@/assets/hero-ai-assistant.jpg";
 
 const team = [
@@ -160,10 +160,12 @@ const Index = () => {
                 className="relative"
               >
                 <div className="floating-animation">
-                  <img
+                  <Image
                     src={"/pictures/ai-web-background.jpg"}
                     alt="AI Assistant Interface"
                     className="w-full h-auto rounded-2xl shadow-2xl"
+                    height={10}
+                    width={10}
                   />
                 </div>
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-full blur-xl opacity-60"></div>
@@ -287,7 +289,7 @@ const Index = () => {
           >
             <h2 className="text-4xl font-bold mb-4">What Our Users Say</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of satisfied customers who've transformed their onboarding experience
+              Join thousands of satisfied customers who have transformed their onboarding experience
             </p>
           </motion.div>
           

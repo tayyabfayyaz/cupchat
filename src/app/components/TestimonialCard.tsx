@@ -21,7 +21,7 @@ export const TestimonialCard = ({ user, comment, rating = 5 }: TestimonialCardPr
               <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
             ))}
           </div>
-          <p className="text-foreground italic leading-relaxed mb-4">"{comment}"</p>
+          <p className="text-foreground italic leading-relaxed mb-4">{comment}</p>
           <p className="text-right font-semibold text-primary">— {user}</p>
         </CardContent>
       </Card>

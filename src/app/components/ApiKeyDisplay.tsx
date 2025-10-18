@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Copy, Check, ExternalLink, RefreshCw, AlertCircle } from "lucide-react";
+import { Copy, Check, RefreshCw, AlertCircle } from "lucide-react";
 
 interface ApiKeyDisplayProps {
   apiKey: string;
@@ -14,7 +14,21 @@ export default function ApiKeyDisplay({ apiKey, agentId, apiUrl }: ApiKeyDisplay
   const [copied, setCopied] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const [debugInfo, setDebugInfo] = useState<any>({});
+  const [debugInfo, setDebugInfo] = useState<{
+    received: {
+      apiKey: string;
+      agentId: string;
+      apiUrl: string;
+    };
+    sessionStorage: string | null;
+    localStorage: string | null;
+    urlParams: string;
+  }>({
+    received: { apiKey: '', agentId: '', apiUrl: '' },
+    sessionStorage: null,
+    localStorage: null,
+    urlParams: ''
+  });
 
   useEffect(() => {
     setIsClient(true);
@@ -102,13 +116,13 @@ function MyApp() {
           </div>
 
           <p className="mb-4 text-gray-600">
-            We couldn't find your API key. This might happen if:
+            We could not find your API key. This might happen if:
           </p>
           <ul className="text-left list-disc list-inside mb-6 text-gray-600 space-y-2">
             <li>You refreshed the page after generating the key</li>
             <li>The API server is not running</li>
             <li>There was an error creating your agent</li>
-            <li>The data wasn't saved properly</li>
+            <li>The data was not saved properly</li>
           </ul>
           
           <div className="flex gap-4 justify-center">

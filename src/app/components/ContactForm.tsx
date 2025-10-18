@@ -25,7 +25,7 @@ export default function ContactForm() {
             Send us a message
           </h2>
           <p className="text-sm text-slate-600">
-            Fill out the form below and we'll respond as soon as possible.
+            Fill out the form below and we will respond as soon as possible.
           </p>
         </div>
 

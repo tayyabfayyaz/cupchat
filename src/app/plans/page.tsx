@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Rocket, Gem } from "lucide-react";
+import { Zap, Rocket, Gem } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import { Button } from "@/components/ui/button";
 
