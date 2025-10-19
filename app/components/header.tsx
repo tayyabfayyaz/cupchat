@@ -42,7 +42,7 @@ const Header: React.FC = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
           {[
-            { href: "/home", label: "Home" },
+            { href: "/", label: "Home" },
             { href: "/features", label: "Features" },
             { href: "/working", label: "How it Works" },
             { href: "/plans", label: "Pricing" },
