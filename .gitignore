@@ -158,3 +158,5 @@ Thumbs.db
 
 # Custom AI setup (local model weights or configs)
 custom-llama-setup/
+
+.middleware
