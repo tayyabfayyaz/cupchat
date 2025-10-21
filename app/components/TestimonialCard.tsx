@@ -16,7 +16,7 @@ export function TestimonialCard({ user, comment }: TestimonialCardProps) {
           <Star key={i} className="w-4 h-4 fill-purple-600 text-purple-600" />
         ))}
       </div>
-      <p className="text-foreground mb-4 leading-relaxed">"{comment}"</p>
+      <p className="text-foreground mb-4 leading-relaxed">{comment}</p>
       <p className="font-semibold text-sm text-foreground">{user}</p>
     </motion.div>
   )
