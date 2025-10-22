@@ -1,46 +1,55 @@
-import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
-import "./globals.css";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import { ClerkProvider } from "@clerk/nextjs";
-import ChatbotClient from "./components/chatbot";
+  import type { Metadata } from "next";
+  import { Inter, Roboto_Mono } from "next/font/google";
+  import { ClerkProvider } from "@clerk/nextjs";
+  import "./globals.css";
 
-const geistSans = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  // Components
+  import Header from "./components/header";
+  import Footer from "./components/footer";
+  import ChatbotClient from "./components/chatbot";
 
-const geistMono = Roboto_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  // Font configurations
+  const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-geist-sans",
+    display: "swap", // Improves font loading performance
+  });
 
-export const metadata: Metadata = {
-  title: "CupChat AI",
-  description: "A production-ready AI agent API with Gemini integration that enables seamless conversational AI experiences. Features include real-time chat, conversation memory, rate limiting, and secure API key management. Built with FastAPI and designed for scalability.",
-  icons: {
-    icon: "/bot.ico",
-  },
-};
+  const robotoMono = Roboto_Mono({
+    subsets: ["latin"],
+    variable: "--font-geist-mono",
+    display: "swap",
+  });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <Header />
-          <ChatbotClient />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
-  );
-}
+  export const metadata: Metadata = {
+    title: "CupChat AI",
+    description: "A production-ready AI agent API with Gemini integration that enables seamless conversational AI experiences. Features include real-time chat, conversation memory, rate limiting, and secure API key management. Built with FastAPI and designed for scalability.",
+    icons: {
+      icon: "/bot.ico",
+    },
+    viewport: "width=device-width, initial-scale=1",
+    themeColor: "#ffffff",
+  };
+
+  export default function RootLayout({
+    children,
+  }: {
+    children: React.ReactNode;
+  }) {
+    return (
+      <ClerkProvider>
+        <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+          <body className="min-h-screen antialiased">
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <ChatbotClient />
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </body>
+        </html>
+      </ClerkProvider>
+    );
+  }
