@@ -165,7 +165,7 @@ export default function Index() {
             >
               <div className="relative w-full h-96 bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl overflow-hidden">
                 <Image
-                  src="/pictures/ai-assistant-dashboard.png"
+                  src="/pictures/ai-web-back.jpg"
                   alt="AI Assistant Interface"
                   className="w-full h-full object-cover"
                   fill
