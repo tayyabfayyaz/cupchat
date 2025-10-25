@@ -43,9 +43,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
-        <body className="min-h-screen antialiased">
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+      <body className="min-h-screen antialiased">
+        <ClerkProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
@@ -54,8 +54,8 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   )
 }
